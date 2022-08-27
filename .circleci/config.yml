@@ -135,12 +135,6 @@ jobs:
       - checkout
       - run: yum install -y tar gzip
       - run:
-          name: Configure AWS CLI
-          command: |
-            aws configure set aws_access_key_id ${AWS_ACCESS_KEY_ID}
-            aws configure set aws_secret_access_key ${AWS_SECRET_ACCESS_KEY}
-            aws configure set aws_defualt_region ${AWS_DEFAULT_REGION}
-      - run:
           name: Ensure back-end infrastructure exists
           command: |
             aws cloudformation deploy \
