@@ -278,7 +278,7 @@ jobs:
             pwd
             cd backend
             touch .env
-            echo ENVIRONMENt=production > "".env"
+            echo ENVIRONMENt=production > ".env"
             echo TYPEORM_CONNECTION=postgres >> ".env"
             echo TYPEORM_ENTITIES=./src/modules/domain/**/*.entity.ts >> ".env"
             echo TYPEORM_MIGRATIONS=./src/migrations/*.ts >> ".env"
@@ -300,6 +300,7 @@ jobs:
             
             cd .circleci/ansible
 
+            echo "Contents  of the inventory.txt file is ......"
             cat inventory.txt
             ansible-playbook -i inventory.txt deploy-backend.yml
       - destroy-environment:
